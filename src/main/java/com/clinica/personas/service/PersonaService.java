@@ -9,11 +9,11 @@ public interface PersonaService {
 
     List<Persona> getAllPersonas();
 
-    Optional<Persona> getPersonaById(Long id);
+    Optional<Persona> getPersonaById(Long idPersona);
 
     Persona createPersona(Persona persona);
 
-    Persona updatePersona(Long id, Persona persona);
+    Persona updatePersona(Long idPersona, Persona persona);
 
-    void deletePersona(Long id);
+    void deletePersona(Long idPersona);
 }

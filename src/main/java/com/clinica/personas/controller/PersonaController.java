@@ -2,6 +2,7 @@ package com.clinica.personas.controller;
 
 import com.clinica.personas.model.Persona;
 import com.clinica.personas.service.PersonaService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/personas")
+@RequiredArgsConstructor
 public class PersonaController {
 
-    @Autowired
-    private PersonaService personaService;
+    private final PersonaService personaService;
 
     @GetMapping
     public List<Persona> getAllPersonas() {
