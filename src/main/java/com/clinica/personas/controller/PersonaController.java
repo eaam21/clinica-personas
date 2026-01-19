@@ -3,7 +3,6 @@ package com.clinica.personas.controller;
 import com.clinica.personas.model.Persona;
 import com.clinica.personas.service.PersonaService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +24,13 @@ public class PersonaController {
     @GetMapping("/{id}")
     public ResponseEntity<Persona> getPersonaById(@PathVariable Long id) {
         return personaService.getPersonaById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/dni/{dni}")
+    public ResponseEntity<Persona> getPersonaByDni(@PathVariable String dni) {
+        return personaService.getPersonaByDni(dni)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

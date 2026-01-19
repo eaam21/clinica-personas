@@ -3,7 +3,6 @@ package com.clinica.personas.service;
 import com.clinica.personas.model.Persona;
 import com.clinica.personas.repository.PersonaRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +22,11 @@ public class PersonaServiceImpl implements PersonaService {
     @Override
     public Optional<Persona> getPersonaById(Long idPersona) {
         return personaRepository.findById(idPersona);
+    }
+
+    @Override
+    public Optional<Persona> getPersonaByDni(String dni) {
+        return personaRepository.findByDni(dni);
     }
 
     @Override

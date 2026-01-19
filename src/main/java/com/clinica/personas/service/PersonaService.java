@@ -11,6 +11,8 @@ public interface PersonaService {
 
     Optional<Persona> getPersonaById(Long idPersona);
 
+    Optional<Persona> getPersonaByDni(String dni);
+
     Persona createPersona(Persona persona);
 
     Persona updatePersona(Long idPersona, Persona persona);
