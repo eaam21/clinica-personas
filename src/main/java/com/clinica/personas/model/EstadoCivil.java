@@ -10,7 +10,7 @@ public class EstadoCivil {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id_estado")
-    private Long idEstado;
+    private Long idEstadoCivil;
 
     @Column(name="nombre")
     private String nombre;
