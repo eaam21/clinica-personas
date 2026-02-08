@@ -5,6 +5,7 @@ import com.clinica.personas.service.PersonaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class PersonaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Persona> getPersonaById(@PathVariable Long id) {
+    public ResponseEntity<Persona> getPersonaById(Authentication authentication, @PathVariable Long id) {
         return personaService.getPersonaById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
