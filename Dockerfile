@@ -13,13 +13,13 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Etapa 2: Ejecución con una imagen JRE ligera
-FROM openjdk:21-jre-slim
+FROM eclipse-temurin:21-jre-alpine
 
 # Establecer el directorio de trabajo
 WORKDIR /app
 
 # Copiar el JAR desde la etapa de construcción
-COPY --from=build /app/target/personas-*.jar app.jar
+COPY --from=build /app/target/personas*.jar app.jar
 
 # Exponer el puerto en el que corre la aplicación
 EXPOSE 8080
